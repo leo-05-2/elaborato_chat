@@ -129,6 +129,30 @@ elaborato_chat/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/build
 .PHONY : elaborato_chat/fast
 
+chat.o: chat.cpp.o
+.PHONY : chat.o
+
+# target to build an object file
+chat.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/chat.cpp.o
+.PHONY : chat.cpp.o
+
+chat.i: chat.cpp.i
+.PHONY : chat.i
+
+# target to preprocess a source file
+chat.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/chat.cpp.i
+.PHONY : chat.cpp.i
+
+chat.s: chat.cpp.s
+.PHONY : chat.s
+
+# target to generate assembly for a file
+chat.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/chat.cpp.s
+.PHONY : chat.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -153,6 +177,54 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+message.o: message.cpp.o
+.PHONY : message.o
+
+# target to build an object file
+message.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/message.cpp.o
+.PHONY : message.cpp.o
+
+message.i: message.cpp.i
+.PHONY : message.i
+
+# target to preprocess a source file
+message.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/message.cpp.i
+.PHONY : message.cpp.i
+
+message.s: message.cpp.s
+.PHONY : message.s
+
+# target to generate assembly for a file
+message.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/message.cpp.s
+.PHONY : message.cpp.s
+
+user.o: user.cpp.o
+.PHONY : user.o
+
+# target to build an object file
+user.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/user.cpp.o
+.PHONY : user.cpp.o
+
+user.i: user.cpp.i
+.PHONY : user.i
+
+# target to preprocess a source file
+user.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/user.cpp.i
+.PHONY : user.cpp.i
+
+user.s: user.cpp.s
+.PHONY : user.s
+
+# target to generate assembly for a file
+user.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/elaborato_chat.dir/build.make CMakeFiles/elaborato_chat.dir/user.cpp.s
+.PHONY : user.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... elaborato_chat"
+	@echo "... chat.o"
+	@echo "... chat.i"
+	@echo "... chat.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... message.o"
+	@echo "... message.i"
+	@echo "... message.s"
+	@echo "... user.o"
+	@echo "... user.i"
+	@echo "... user.s"
 .PHONY : help
 
 

@@ -8,7 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.cpp" "CMakeFiles/elaborato_chat.dir/chat.cpp.o" "gcc" "CMakeFiles/elaborato_chat.dir/chat.cpp.o.d"
   "/mnt/c/Users/leoke/CLionProjects/elaborato_chat/main.cpp" "CMakeFiles/elaborato_chat.dir/main.cpp.o" "gcc" "CMakeFiles/elaborato_chat.dir/main.cpp.o.d"
+  "/mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.cpp" "CMakeFiles/elaborato_chat.dir/message.cpp.o" "gcc" "CMakeFiles/elaborato_chat.dir/message.cpp.o.d"
+  "/mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.cpp" "CMakeFiles/elaborato_chat.dir/user.cpp.o" "gcc" "CMakeFiles/elaborato_chat.dir/user.cpp.o.d"
   )
 
 # Targets to which this target links.

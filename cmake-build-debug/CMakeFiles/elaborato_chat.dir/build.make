@@ -83,17 +83,65 @@ CMakeFiles/elaborato_chat.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/elaborato_chat.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/leoke/CLionProjects/elaborato_chat/main.cpp -o CMakeFiles/elaborato_chat.dir/main.cpp.s
 
+CMakeFiles/elaborato_chat.dir/chat.cpp.o: CMakeFiles/elaborato_chat.dir/flags.make
+CMakeFiles/elaborato_chat.dir/chat.cpp.o: ../chat.cpp
+CMakeFiles/elaborato_chat.dir/chat.cpp.o: CMakeFiles/elaborato_chat.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/elaborato_chat.dir/chat.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/elaborato_chat.dir/chat.cpp.o -MF CMakeFiles/elaborato_chat.dir/chat.cpp.o.d -o CMakeFiles/elaborato_chat.dir/chat.cpp.o -c /mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.cpp
+
+CMakeFiles/elaborato_chat.dir/chat.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/elaborato_chat.dir/chat.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.cpp > CMakeFiles/elaborato_chat.dir/chat.cpp.i
+
+CMakeFiles/elaborato_chat.dir/chat.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/elaborato_chat.dir/chat.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.cpp -o CMakeFiles/elaborato_chat.dir/chat.cpp.s
+
+CMakeFiles/elaborato_chat.dir/user.cpp.o: CMakeFiles/elaborato_chat.dir/flags.make
+CMakeFiles/elaborato_chat.dir/user.cpp.o: ../user.cpp
+CMakeFiles/elaborato_chat.dir/user.cpp.o: CMakeFiles/elaborato_chat.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/elaborato_chat.dir/user.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/elaborato_chat.dir/user.cpp.o -MF CMakeFiles/elaborato_chat.dir/user.cpp.o.d -o CMakeFiles/elaborato_chat.dir/user.cpp.o -c /mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.cpp
+
+CMakeFiles/elaborato_chat.dir/user.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/elaborato_chat.dir/user.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.cpp > CMakeFiles/elaborato_chat.dir/user.cpp.i
+
+CMakeFiles/elaborato_chat.dir/user.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/elaborato_chat.dir/user.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.cpp -o CMakeFiles/elaborato_chat.dir/user.cpp.s
+
+CMakeFiles/elaborato_chat.dir/message.cpp.o: CMakeFiles/elaborato_chat.dir/flags.make
+CMakeFiles/elaborato_chat.dir/message.cpp.o: ../message.cpp
+CMakeFiles/elaborato_chat.dir/message.cpp.o: CMakeFiles/elaborato_chat.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/elaborato_chat.dir/message.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/elaborato_chat.dir/message.cpp.o -MF CMakeFiles/elaborato_chat.dir/message.cpp.o.d -o CMakeFiles/elaborato_chat.dir/message.cpp.o -c /mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.cpp
+
+CMakeFiles/elaborato_chat.dir/message.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/elaborato_chat.dir/message.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.cpp > CMakeFiles/elaborato_chat.dir/message.cpp.i
+
+CMakeFiles/elaborato_chat.dir/message.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/elaborato_chat.dir/message.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.cpp -o CMakeFiles/elaborato_chat.dir/message.cpp.s
+
 # Object files for target elaborato_chat
 elaborato_chat_OBJECTS = \
-"CMakeFiles/elaborato_chat.dir/main.cpp.o"
+"CMakeFiles/elaborato_chat.dir/main.cpp.o" \
+"CMakeFiles/elaborato_chat.dir/chat.cpp.o" \
+"CMakeFiles/elaborato_chat.dir/user.cpp.o" \
+"CMakeFiles/elaborato_chat.dir/message.cpp.o"
 
 # External object files for target elaborato_chat
 elaborato_chat_EXTERNAL_OBJECTS =
 
 elaborato_chat: CMakeFiles/elaborato_chat.dir/main.cpp.o
+elaborato_chat: CMakeFiles/elaborato_chat.dir/chat.cpp.o
+elaborato_chat: CMakeFiles/elaborato_chat.dir/user.cpp.o
+elaborato_chat: CMakeFiles/elaborato_chat.dir/message.cpp.o
 elaborato_chat: CMakeFiles/elaborato_chat.dir/build.make
 elaborato_chat: CMakeFiles/elaborato_chat.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable elaborato_chat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable elaborato_chat"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/elaborato_chat.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

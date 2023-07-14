@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/elaborato_chat.dir/main.cpp.o -o elaborato_chat 
+/usr/bin/c++ -g CMakeFiles/elaborato_chat.dir/main.cpp.o CMakeFiles/elaborato_chat.dir/chat.cpp.o CMakeFiles/elaborato_chat.dir/user.cpp.o CMakeFiles/elaborato_chat.dir/message.cpp.o -o elaborato_chat 

@@ -82,7 +82,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.cpp">
+			<Option target="elaborato_chat"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/chat.h">
+			<Option target="elaborato_chat"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/main.cpp">
+			<Option target="elaborato_chat"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.cpp">
+			<Option target="elaborato_chat"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/message.h">
+			<Option target="elaborato_chat"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.cpp">
+			<Option target="elaborato_chat"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/user.h">
 			<Option target="elaborato_chat"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/leoke/CLionProjects/elaborato_chat/CMakeLists.txt">
