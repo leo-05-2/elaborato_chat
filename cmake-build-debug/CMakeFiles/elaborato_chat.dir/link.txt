@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/elaborato_chat.dir/main.cpp.o -o elaborato_chat 

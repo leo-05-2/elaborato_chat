@@ -1,0 +1,3 @@
+/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles/elaborato_chat.dir
+/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/leoke/CLionProjects/elaborato_chat/cmake-build-debug/CMakeFiles/rebuild_cache.dir
