@@ -3,3 +3,9 @@
 //
 
 #include "user.h"
+#include "message.h"
+void user::send_message(std::string &message_text, user &receiver) {
+    Message message(message_text,get_user_id(), receiver.get_user_id());
+
+
+}

@@ -6,7 +6,23 @@
 #define ELABORATO_CHAT_MESSAGE_H
 
 
-class message {
+#include <string>
+#include <iostream>
+
+class Message {
+public:
+    Message(const std::string &text, const std::string &sender_id, const  std::string &receiver_id):
+    text(text), sender_id(sender_id), receiver_id(receiver_id){};
+
+
+private:
+    std::string text;
+    std::string sender_id;
+    std::string receiver_id;
+
+
+
+
 
 };
 
