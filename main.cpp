@@ -1,6 +1,10 @@
 #include <iostream>
+#include "user.h"
+#include "message.h"
+#include "chat.h"
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }

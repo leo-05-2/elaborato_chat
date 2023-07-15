@@ -9,8 +9,11 @@
 #include <vector>
 #include "user.h"
 
-class chat {
+class Chat {
 public:
+    Chat();
+    std::vector<Message> &get_messages();
+
 
 
 private:

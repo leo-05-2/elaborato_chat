@@ -12,8 +12,8 @@ public:
     user(std::string &user_id, std::string &user_name, std::string &user_surname):
     user_id(user_id), user_name(user_name), user_surname(user_surname){};
 
-    void send_message(std::string &message_text, user &receiver);
-    const std::string get_user_id()const{
+    void send_message(const std::string &message_text, user &receiver);
+    const std::string & get_user_id()const{
         return user_id;
     };
     std::string get_user_name(){
