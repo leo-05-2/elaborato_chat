@@ -11,15 +11,26 @@
 
 class Chat {
 public:
-    Chat();
+    Chat( user &sender, user &receiver);
     std::vector<Message> &get_messages();
+    const user &get_sender() const {
+        return sender;
+    }
+    const user &get_receiver() const {
+        return receiver;
+    }
+    void print_chat();
+
+
+
+
 
 
 
 private:
     user sender;
     user receiver;
-    std::vector<Message> messages;
+    std::vector<Message> chat_m;
 
 
 
