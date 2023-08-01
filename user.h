@@ -11,9 +11,10 @@
 
 class user {
 public:
-    user(std::string &user_id, std::string &user_name,std::string &user_surname):
+    user(const std::string &user_id,const std::string &user_name,const std::string &user_surname):
     user_id(user_id), user_name(user_name), user_surname(user_surname){};
-    user(std::string id):user_id(id),user_name("default name"), user_surname("default cognome" ){};
+
+    explicit user(const std::string &id):user_id(id),user_name("default name"), user_surname("default cognome" ){};
 
     bool send_message(const std::string &message_text, user &receiver);
     const std::string & get_user_id()const{
@@ -33,9 +34,11 @@ public:
     }
 
     bool operator==(const user &rs) const {
-        return user_id == rs.user_id;
+        return user_id == rs.user_id&& user_name==rs.user_name&&user_surname==rs.user_surname;
     }
-
+    void set_messages(const std::vector<Message> &messages){
+        user::messages = messages;
+    };
 private:
     std::string user_id;
     std::string user_name;
