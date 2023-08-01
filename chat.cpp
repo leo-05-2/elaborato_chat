@@ -33,23 +33,17 @@ Chat::Chat(user & u1, user &u2):sender(u1), receiver(u2){
             chat_m.push_back(*u2_it);
             u2_it++;
         }
-
-
-
     }
-    if(u1_it== u1_chat.end()){
-        while(u2_it!=u2_chat.end()){
-            chat_m.push_back(*u2_it);
-            u2_it++;
-        }
+
+    while(u2_it!=u2_chat.end()){
+        chat_m.push_back(*u2_it);
+        u2_it++;
     }
-    else{
-        if(u2_it==u2_chat.end()){
-            while(u1_it!=u1_chat.end()){
-                chat_m.push_back(*u1_it);
-                u1_it++;
-            }
-        }
+
+
+    while(u1_it!=u1_chat.end()) {
+        chat_m.push_back(*u1_it);
+        u1_it++;
     }
 
 }
@@ -60,6 +54,13 @@ std::vector<Message> &Chat::get_messages() {
 void Chat::print_chat() {
     for(auto it=chat_m.begin();it!=chat_m.end();it++){
         std::cout<<it->get_text()<<" "<<"sender:"<<it->get_sender_id()<<" "<<endl;
+        cout<<endl;
+        if(it->get_read()){
+            cout<<"read"<<endl;
+        }
+        else{
+            cout<<"not read"<<endl;
+        }
     }
 }
 
