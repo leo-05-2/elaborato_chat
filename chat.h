@@ -20,6 +20,9 @@ public:
         return receiver;
     }
     void print_chat();
+    bool operator==(const Chat &rs) const {
+        return sender==rs.sender&&receiver==rs.receiver;
+    }
 
 
 
