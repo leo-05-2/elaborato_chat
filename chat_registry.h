@@ -16,11 +16,10 @@ public:
     std::list<Chat> &get_chats(){
         return chats;
     }
-    Chat &get_chat(user &sender, user &receiver);
+    Chat& get_chat(user &sender, user &receiver);
     Chat &get_chat(Chat &chat);
-    void print_chats();
-
-
+    void print_chats_list() const;
+    void add_chat(user &sender,user receiver );
 
 private:
     std::list<Chat> chats;
