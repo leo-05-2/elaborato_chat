@@ -12,7 +12,7 @@
 class chat_registry {
 public:
     void add_chat(Chat &chat);
-    void remove_chat(Chat &chat);
+    void remove_chat(const Chat &chat);
     std::list<Chat> &get_chats(){
         return chats;
     }
