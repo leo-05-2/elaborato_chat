@@ -123,20 +123,7 @@ int main() {
                     auto it=find(users.begin(), users.end(),
                                  user(name + surname, name, surname));
                     if (it != users.end()) {
-
-                        auto ite=find(cr->get_chats().begin(), cr->get_chats().end(),
-                                      Chat(*selected_user, *it));
-                        if( ite==cr->get_chats().end()){
-                            cr->add_chat(*selected_user, *it);
-                        }
-                        else{
-                            cr->remove_chat(*ite);
-                            cr->add_chat(*selected_user, *it);
-                        }
-
                         cr->get_chat(*selected_user, *it).print_chat();
-
-
                     } else {
                         cout << "utente non trovato" << endl;
                     }

@@ -44,17 +44,25 @@ void chat_registry::remove_chat( const Chat &chat) {
     u2.set_messages(u2_m);
     chats.remove(chat);
 }
-Chat &chat_registry::get_chat(user &sender, user &receiver) {
-    for(auto it=chats.begin();it!=chats.end();it++){
-        if(it->get_sender()==sender&&it->get_receiver()==receiver){
-            return *it;
+Chat& chat_registry::get_chat(user &sender, user &receiver) {
+
+    add_chat(sender,receiver);
+    auto ite=chats.end();
+    ite--;
+    for(auto it=ite->get_messages().begin();it!= ite->get_messages().end();it++) {
+        if (it->get_sender_id() == receiver.get_user_id() && !it->get_read()) {
+            it->set_read();
+
         }
     }
-    cout << "Chat not found. adding chat" << endl;
-    Chat new_chat(sender, receiver);
-    add_chat(new_chat);
-    auto it = std::find(chats.begin(), chats.end(), new_chat);
-    return *it;
+    for(auto it=sender.get_messages().begin();it!=sender.get_messages().end();it++){
+        if(it->get_sender_id()==receiver.get_user_id()&&!it->get_read()){
+            it->set_read();
+        }
+    }
+
+    return *ite;
+
 
 }
 Chat &chat_registry::get_chat(Chat &chat) {
@@ -72,4 +80,27 @@ void chat_registry::print_chats() {
     for(auto it=chats.begin();it!=chats.end();it++){
         it->print_chat();
     }
+}
+void chat_registry::add_chat(user &sender,user receiver ) {
+    bool found=false;
+    Chat new_chat(sender,receiver);
+    auto iter=chats.begin();
+    for(auto it=chats.begin();it!=chats.end();it++){
+        if(it->get_sender()==sender&&it->get_receiver()==receiver||
+           it->get_sender()==receiver&&it->get_receiver()==sender){
+            found=true;
+            iter=it;
+        }
+    }
+    if(!found){
+        chats.push_back(new_chat);
+    }
+    else {
+        cout<<"Chat already exists"<<endl;
+        chats.erase(iter);
+        chats.push_back(new_chat);
+
+    }
+
+
 }
