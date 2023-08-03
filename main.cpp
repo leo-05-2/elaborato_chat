@@ -14,7 +14,7 @@ int main() {
 
     while(iter!=0) {
         cout<<"1 aggiungi utente,2 manda un messaggio, 3 seleziona utente  ,4 mostra chat,"
-              "5 cancella chatt,6 esci  "<<endl;
+              "5 cancella chat e messaggi,6 elenco chat,7 esci  "<<endl;
         cin>>iter;
 
         switch (iter) {
@@ -96,7 +96,6 @@ int main() {
                         selected_user=& users[count];
                         cout << "utente selezionato" << endl;
                         cout<<selected_user->get_user_name()<<endl;
-                        // togliere selected ed ipostare come guardie selected user
 
                     } else {
                         cout << "utente non trovato" << endl;
@@ -166,7 +165,14 @@ int main() {
             }
 
             case 6: {
-               iter = 0;
+                if(cr->get_chats().empty())
+                    cout<<"non ci sono chat"<<endl;
+                else
+                   cr->print_chats_list();
+               break;
+            }
+            case 7: {
+                iter = 0;
                 break;
             }
             default: {

@@ -76,9 +76,12 @@ Chat &chat_registry::get_chat(Chat &chat) {
         return *it;
     }
 }
-void chat_registry::print_chats() {
+void  chat_registry::print_chats_list() const {
+    int count=0;
     for(auto it=chats.begin();it!=chats.end();it++){
-        it->print_chat();
+        cout<<"Chat between " ;
+        cout<<count<<")"<<it->get_sender().get_user_name()<<""<<it->get_sender().get_user_surname()
+        <<" and "<<it->get_receiver().get_user_name()<<""<<it->get_receiver().get_user_surname()<<endl;
     }
 }
 void chat_registry::add_chat(user &sender,user receiver ) {

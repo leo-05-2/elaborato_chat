@@ -20,10 +20,10 @@ public:
     const std::string & get_user_id()const{
         return user_id;
     };
-    std::string get_user_name(){
+    const std::string &get_user_name()const{
         return user_name;
     };
-    std::string get_user_surname(){
+    const std::string &get_user_surname()const{
         return user_surname;
     };
     std::vector<Message> &get_messages(){
@@ -36,8 +36,8 @@ public:
     bool operator==(const user &rs) const {
         return user_id == rs.user_id&& user_name==rs.user_name&&user_surname==rs.user_surname;
     }
-    void set_messages(const std::vector<Message> &messages){
-        user::messages = messages;
+    void set_messages(const std::vector<Message> &mess){
+        user::messages = mess;
     };
 private:
     std::string user_id;
