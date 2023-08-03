@@ -19,7 +19,29 @@ void chat_registry::add_chat(Chat &chat) {
     }
 }
 
-void chat_registry::remove_chat(Chat &chat) {
+void chat_registry::remove_chat( const Chat &chat) {
+    auto u1=chat.get_sender();
+    auto u2=chat.get_receiver();
+    auto u1_m=u1.get_messages();
+    auto u2_m=u2.get_messages();
+    for(auto it=u1_m.begin();it!=u1_m.end();){
+        if(it->get_sender_id()==u2.get_user_id()){
+            u1_m.erase(it);
+        }
+        else{
+            it++;
+        }
+    }
+    for(auto it=u2_m.begin();it!=u2_m.end();){
+        if(it->get_sender_id()==u1.get_user_id()){
+            u2_m.erase(it);
+        }
+        else{
+            it++;
+        }
+    }
+    u1.set_messages(u1_m);
+    u2.set_messages(u2_m);
     chats.remove(chat);
 }
 Chat &chat_registry::get_chat(user &sender, user &receiver) {
