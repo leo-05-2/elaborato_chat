@@ -12,6 +12,7 @@
 class Chat {
 public:
     Chat( user &sender, user &receiver);
+    Chat create_chat(const user & sender,const user& receiver);
     std::vector<Message> &get_messages();
     const user &get_sender() const {
         return sender;

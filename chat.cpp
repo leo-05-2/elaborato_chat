@@ -6,6 +6,9 @@
 
 
 Chat::Chat(user & u1, user &u2):sender(u1), receiver(u2){
+  Chat:: create_chat(get_sender(),get_receiver());
+}
+Chat Chat::create_chat(const user & u1,const  user & u2) {
     auto u1_m=sender.get_messages();
     auto u2_m=receiver.get_messages();
     vector<Message> u1_chat;
