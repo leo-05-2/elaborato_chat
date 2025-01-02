@@ -11,8 +11,10 @@
 
 class user {
 public:
-    user(const std::string &user_id,const std::string &user_name,const std::string &user_surname):
+    user(std::string &user_id, std::string &user_name, std::string &user_surname):
     user_id(user_id), user_name(user_name), user_surname(user_surname){};
+    user( std::string &user_name, std::string &user_surname):user_id(user_name+user_surname),
+    user_name(user_name), user_surname(user_surname){};
 
     explicit user(const std::string &id):user_id(id),user_name("default name"), user_surname("default cognome" ){};
 
