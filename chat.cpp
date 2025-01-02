@@ -48,6 +48,7 @@ Chat Chat::create_chat(const user & u1,const  user & u2) {
         chat_m.push_back(*u1_it);
         u1_it++;
     }
+    return *this;
 
 }
 
