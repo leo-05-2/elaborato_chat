@@ -45,23 +45,21 @@ void chat_registry::remove_chat( const Chat &chat) {
     chats.remove(chat);
 }
 Chat& chat_registry::get_chat(user &sender, user &receiver) {
-
-    add_chat(sender,receiver);
-    auto ite=chats.end();
-    ite--;
-    for(auto it=ite->get_messages().begin();it!= ite->get_messages().end();it++) {
-        if (it->get_sender_id() == receiver.get_user_id() && !it->get_read()) {
-            it->set_read();
-
-        }
+    Chat chat(sender,receiver);
+    auto ite=std::find(chats.begin() ,chats.end(),chat);
+    if (ite==chats.end()){
+        cout<<"Chat not found. adding chat"<<endl;
+        add_chat(chat);
+        ite=std::find(chats.begin(),chats.end(),chat);
     }
-    for(auto it=sender.get_messages().begin();it!=sender.get_messages().end();it++){
-        if(it->get_sender_id()==receiver.get_user_id()&&!it->get_read()){
+    for(auto it=ite->get_messages().begin();it!=ite->get_messages().end();it++){
+        if (it->get_sender_id()==receiver.get_user_id()){
             it->set_read();
         }
     }
-
     return *ite;
+
+
 
 
 }
