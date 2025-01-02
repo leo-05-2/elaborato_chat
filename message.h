@@ -36,7 +36,7 @@ public:
         time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     };
     void print_time()const{
-        cout<<time<<endl;
+        cout<<ctime(&time);
     };
     bool get_read()const{
         return read;
