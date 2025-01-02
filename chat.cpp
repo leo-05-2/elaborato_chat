@@ -57,14 +57,17 @@ std::vector<Message> &Chat::get_messages() {
 }
 void Chat::print_chat() {
     for(auto it=chat_m.begin();it!=chat_m.end();it++){
-        std::cout<<it->get_text()<<" "<<"sender:"<<it->get_sender_id()<<" "<<endl;
+        cout<<it->get_text()<<" "<<"sender:"<<it->get_sender_id()<<" "<<endl;
         cout<<endl;
+
         if(it->get_read()){
             cout<<"read"<<endl;
         }
         else{
             cout<<"not read"<<endl;
         }
+        cout<<"time:";
+        it->print_time();
     }
 }
 
