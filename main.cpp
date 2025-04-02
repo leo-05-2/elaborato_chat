@@ -1,15 +1,15 @@
 #include <iostream>
-#include "user.h"
-#include "message.h"
-#include "chat.h"
-#include "chat_registry.h"
-#include "message.h"
+#include "User.h"
+#include "Message.h"
+#include "Chat.h"
+#include "Chat_registry.h"
+#include "Message.h"
 
 
 int main() {
-    std::vector<user> users;
-    user *selected_user = nullptr;
-    chat_registry *cr = new chat_registry();
+    std::vector<User> users;
+    User *selected_user = nullptr;
+    Chat_registry *cr = new Chat_registry();
     int iter = 1;
 
     while (iter != 0) {
@@ -25,7 +25,7 @@ int main() {
                 cin >> name;
                 cout << "inserisci il cognome dell'utente" << endl;
                 cin >> surname;
-                user u1(name, surname);
+                User u1(name, surname);
                 auto ite = find(users.begin(), users.end(), u1);
                 if (ite != users.end()) {
                     cout << "utente già presente" << endl;
@@ -172,7 +172,7 @@ int main() {
                                 if (ite == cr->get_chats().end()) {
                                     cout << "chat non presente" << endl;
                                 } else {
-                                    cr->remove_chat(*ite);
+                                    cr->remove_chat(*ite, *selected_user, *it);
                                     cout << "chat rimossa" << endl;
                                 }
                                 break;
