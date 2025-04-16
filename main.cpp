@@ -202,7 +202,7 @@ int main() {
     }
     delete cr;
     delete selected_user;
-    return 0;
+
 }
 
 
