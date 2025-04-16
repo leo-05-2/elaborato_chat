@@ -3,7 +3,7 @@
 #include "Message.h"
 #include "Chat.h"
 #include "Chat_registry.h"
-#include "Message.h"
+
 
 
 int main() {
@@ -59,7 +59,6 @@ int main() {
                             }
                             cout << "utente selezionato" << endl;
                             cout << users[count].get_user_name() << endl;
-                            cout << "  ";
                             cout << users[count].get_user_surname() << endl;
                             string text;
                             cout << "inserisci il testo del messaggio" << endl;
