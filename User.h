@@ -20,8 +20,7 @@ public:
     User(): user_id("default id"), user_name("default name"), user_surname("default cognome" ){};
 
     bool send_message(const std::string &message_text, User &receiver);
-    bool send_message(const std::string &message_text, User &receiver, std::time_t time);
-    bool send_message(Message & message, User &receiver);
+
     const std::string & get_user_id()const{
         return user_id;
     };
@@ -31,24 +30,15 @@ public:
     const std::string &get_user_surname()const{
         return user_surname;
     };
-    std::vector<Message> &get_messages(){
-        return messages;
-    }
-    void add_message(Message &message){
-        messages.push_back(message);
-    }
 
     bool operator==(const User &rs) const {
         return user_id == rs.user_id&& user_name==rs.user_name&&user_surname==rs.user_surname;
     }
-    void set_messages(const std::vector<Message> &mess)  {
-        User::messages = mess;
-    };
+
 private:
     std::string user_id;
     std::string user_name;
     std::string user_surname;
-    std::vector<Message> messages;
 
 
 
