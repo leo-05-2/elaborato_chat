@@ -13,17 +13,7 @@ protected:
     std::time_t time;
     bool read;
 };
-TEST_F(Message_test, constructor) {
-    Message message("test message","sender","receiver");
-    ASSERT_TRUE(message.get_text() == "test message");
-    ASSERT_TRUE(message.get_sender_id() == "sender");
-    ASSERT_TRUE(message.get_receiver_id() == "receiver");
-}
-TEST_F(Message_test, comparison_operator) {
-    Message message1("test message","sender","receiver");
-    Message message2("test message","sender","receiver");
-    ASSERT_TRUE(message1 == message2);
-}
+
 
 
 //

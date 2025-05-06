@@ -11,15 +11,15 @@
 
 class User {
 public:
-    User(const std::string &user_id, const  std::string &user_name, const std::string &user_surname):
-    user_id(user_id), user_name(user_name), user_surname(user_surname){};
+    User(const std::string &user_id, const  std::string &user_name , const std::string &user_surname):
+    user_id(user_id), user_name(user_name), user_surname(user_surname){}
+
+
     User(const std::string &user_name, const std::string &user_surname): user_id(user_name + user_surname),
                                                                          user_name(user_name), user_surname(user_surname){};
 
-    explicit User(const std::string &id): user_id(id), user_name("default name"), user_surname("default cognome" ){};
-    User(): user_id("default id"), user_name("default name"), user_surname("default cognome" ){};
+    User(): user_id("default id"), user_name("default"), user_surname("default"){};
 
-    bool send_message(const std::string &message_text, User &receiver);
 
     const std::string & get_user_id()const{
         return user_id;
