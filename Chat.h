@@ -12,53 +12,40 @@
 class Chat {
 public:
     Chat(User &sender, User &receiver);
+    Chat(std::vector<Message> &message, User &sender, User &receiver):
+    chat_m(message), user1(sender), user2(receiver){};
+    Chat():user1(),user2("default2","default2"){};
 
-    void send_message(const std::string &message_text, User &receiver) {
-        Message message(message_text, sender.get_user_id(), receiver.get_user_id());
-        chat_m.push_back(message);
-    }
-    void count_unread_messages( User sender) { // messaggi ancora da leggere ricevuti
-        int count = 0;
-        for (auto it = chat_m.begin(); it != chat_m.end(); it++) {
-            if (it->get_receiver_id() == sender.get_user_id() && !it->is_read()) {
-                count++;
-            }
-        }
-        std::cout << "messaggi non letti: " << count << std::endl;
-    }
+    void send_message(const std::string &message_text, User &receiver, User &sender);
+    int count_unread_messages(const  User &sender) const;
 
-    Message find_message(const std::string &text) {
-        for (auto it = chat_m.begin(); it != chat_m.end(); it++) {
-            if (it->get_text() == text) {
-                std::cout << "messaggio trovato" << std::endl;
-                return *it ;
-            }
-        }
-        std::cout << "messaggio non trovato" << std::endl;
+    const Message*  find_message( const std::string &text) const ;
+    void get_last_recived_message( const User &sender) const;
+
+    int get_tot_message_number() const {
+        return chat_m.size();
     }
-    Message get_last_recived_message( User sender) {
-        auto it = chat_m.end();
-        for (auto it = chat_m.end(); it->is_read(); it--) {
-            if (it->get_receiver_id() == sender.get_user_id() && !it->is_read()) {
-                std::cout << "messaggio trovato" << std::endl;
-                return *it;
-            }
 
 
-        }
+    void modify_message(const std::string &text,Message &message,User & user1);
+
+    std::vector<Message> & get_messages() {
+        return chat_m;
     }
-    std::vector<Message> &get_messages();
-    const User &get_sender() const {
-        return sender;
+    const User &get_user1() const {
+        return user1;
     }
-    const User &get_receiver() const {
-        return utente2;
+    const User &get_user2() const {
+        return user2;
     }
     void print_chat();
     bool operator==(const Chat &rs) const {
-        return sender==rs.sender&&utente2==rs.utente2;
+        return user1==rs.user1&&user2==rs.user2;
     }
+    void set_message(std::vector<Message> &message) {
+        chat_m=message;
 
+    }
 
 
 
@@ -67,8 +54,8 @@ public:
 
 
 private:
-    User sender;
-    User utente2;
+    User user1;
+    User user2;
     std::vector<Message> chat_m;
 
 
