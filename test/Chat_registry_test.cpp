@@ -11,94 +11,86 @@ protected:
         user1=User("user1", "user1", "user1");
         user2=User("user2", "user2", "user2");
         user3=User("user3", "user3" , "user3");
+        user4=User("user4", "user4", "user4");
+        chat_list = {
+            Chat(user1, user2),
+            Chat(user1, user3),
+        };
+        chats= Chat_registry(chat_list);
+
+
 
 
     }
     virtual void TearDown() override {
-        chats.clear();
-        user1.get_messages().clear();
-        user2.get_messages().clear();
-        user3.get_messages().clear();
+        chats.get_chats().clear();
+        chats.set_chat_list(chat_list);
+
     }
 
-    std::list<Chat> chats;
     User user1;
     User user2;
     User user3;
+    User user4;
+    Chat_registry chats;
+    std::vector<Chat> chat_list;
 };
 
 TEST_F(Chat_registry_test,remove_chat) {
-    ASSERT_TRUE(user1.send_message("messaggio 1", user2,1));
-    ASSERT_TRUE(user1.send_message("messaggio 2", user3,2));
-    ASSERT_TRUE(user2.send_message("messaggio 3", user1,3));
-    ASSERT_TRUE(user3.send_message("messaggio 4", user1,4));
-    Chat chat1(user1, user2);
-    Chat chat2(user1, user3);
-    chats.push_back(chat1);
-    chats.push_back(chat2);
-    Chat_registry chatR(chats);
-    chatR.remove_chat(chat2, user1, user3);
-    EXPECT_EQ(chatR.get_chats().size(), 1);
-    EXPECT_EQ( chatR.get_chats().begin()->get_messages(), Chat(user1,user2).get_messages());
-    EXPECT_EQ(user1.get_messages().size(), 1)<<user1.get_messages().begin()->get_text(),
-                                                         user1.get_messages().end()->get_text();
-    EXPECT_EQ(user3.get_messages().size(), 0)<<user3.get_messages().begin()->get_text(),
-                                                         user3.get_messages().end()->get_text();
+   auto chat = chats.get_chats()[0];
+    chats.remove_chat(chat,user4);
+    ASSERT_EQ(chat, chats.get_chats()[0]);
+    chats.remove_chat(chat,user2);
+    ASSERT_NE(chat, chats.get_chats()[0]);
 
 }
 TEST_F(Chat_registry_test,add_chat) {
-    ASSERT_TRUE(user1.send_message("messaggio 1", user2));
-    ASSERT_TRUE(user1.send_message("messaggio 2", user3));
-    ASSERT_TRUE(user2.send_message("messaggio 3", user1));
-    ASSERT_TRUE(user3.send_message("messaggio 4", user1));
-    ASSERT_TRUE(user2.send_message("messaggio 5", user3));
-    Chat chat1(user1, user2);
-    Chat chat2(user1, user3);
-    chats.push_back(chat1);
-    chats.push_back(chat2);
-    Chat_registry chatR(chats);
-    Chat chat3(user2, user3);
-    chatR.add_chat(chat3);
-    EXPECT_EQ(chatR.get_chats().size(), 3);
-    EXPECT_EQ( chatR.get_chats().back().get_messages(), chat3.get_messages());
+    ASSERT_EQ(chats.get_chats().size(), 2);
+    chats.add_chat(user2, user1);
+    ASSERT_EQ(chats.get_chats().size(), 2);
+    chats.add_chat(user1, user4);
+    ASSERT_EQ(chats.get_chats().size(), 3);
+    ASSERT_EQ(chats.get_chats()[2].get_user1().get_user_id(), user1.get_user_id());
+    ASSERT_EQ(chats.get_chats()[2].get_user2().get_user_id(), user4.get_user_id());
 
 }
 
 TEST_F(Chat_registry_test, get_chat) {
-    Message message1("messaggio 1", user1.get_user_id(), user2.get_user_id(), 1);
-    Message message2("messaggio 2", user2.get_user_id(), user1.get_user_id(), 2);
-    Message message3("messaggio 3", user1.get_user_id(), user2.get_user_id(), 3);
-    user1.send_message(message1, user2);
-    user2.send_message(message2, user1);
-    user1.send_message(message3, user2);
-    Chat chat1(user1, user2);
-    chats.push_back(chat1);
-
-    Chat_registry chatR = Chat_registry(chats);
-    ASSERT_EQ(chatR.get_chat(user1, user2).get_messages().size(), 3);
-    // faccio in modo di testare il funzionamento avendo selezionato user2
-    Chat c = chatR.get_chat(user2, user1);
-    auto it = c.get_messages().begin();
-    ASSERT_EQ((it++)->get_read(), true);
-    ASSERT_EQ((it++)->get_read(), false);
-    chatR.get_chat(user1, user2);
-    ASSERT_EQ(it->get_read(), true);
-
+    ASSERT_EQ(chats.get_chats().size(), 2);
+    chats.add_chat(user2, user1);
+    ASSERT_EQ(chats.get_chats().size(), 2);
 
 }
 
-TEST_F(Chat_registry_test, get_chat_given_chat){
-    Message message1("messaggio 1", user1.get_user_id(), user2.get_user_id(), 1);
-    Message message2("messaggio 2", user2.get_user_id(), user1.get_user_id(), 2);
-    Message message3("messaggio 3", user1.get_user_id(), user2.get_user_id(), 3);
-    user1.send_message(message1, user2);
-    user2.send_message(message2, user1);
-    user1.send_message(message3, user2);
-    Chat chat1(user1, user2);
-    chats.push_back(chat1);
-    Chat_registry chatR = Chat_registry(chats);
-    ASSERT_EQ(chatR.get_chat(chat1).get_messages().size(), 3);
-    ASSERT_TRUE(chatR.get_chat(chat1)==chat1);
+TEST_F(Chat_registry_test, see_chat) {
+
+    auto chat = chats.get_chat(user1, user2);
+    ASSERT_EQ(chat->get_messages().size(), 0);
+    chat->send_message("messaggio 1", user1, user2);
+    chats.see_chat(user2, user1); // in questo chaso u2 chiede di vedere la chat con u1
+    ASSERT_EQ(chat->get_messages().size(), 1);
+    ASSERT_EQ(chat->get_messages()[0].get_text(), "messaggio 1");
+    ASSERT_EQ(chat->get_messages()[0].is_read(),false);
+    ASSERT_EQ(chat->get_messages()[0].is_modified(),false);
+    chat->send_message("messaggio 2", user2, user1);
+    chats.see_chat(user1, user2);
+    ASSERT_EQ(chat->get_messages()[0].is_read(), true);
+    ASSERT_EQ(chat->get_messages()[1].is_read(), false);
+    ASSERT_EQ(chat->get_messages()[0].is_modified(), false);
+    ASSERT_EQ(chat->get_messages()[1].is_modified(), false);
+    chats.see_chat(user2, user1);
+    ASSERT_EQ(chat->get_messages()[0].is_read(), true);
+    ASSERT_EQ(chat->get_messages()[1].is_read(), true);
+    ASSERT_EQ(chat->get_messages()[0].is_modified(), false);
+    ASSERT_EQ(chat->get_messages()[1].is_modified(), false);
+    chat->modify_message("messaggio modificato", chat->get_messages()[0], user1); // user 1 non può modificare un messaggio non suo
+    ASSERT_EQ(chat->get_messages()[0].is_read(), true);
+    ASSERT_EQ(chat->get_messages()[0].is_modified(), false);
+    chat->modify_message("messaggio modificato", chat->get_messages()[0], user2);
+    ASSERT_EQ(chat->get_messages()[0].is_read(), true);
+    ASSERT_EQ(chat->get_messages()[0].is_modified(), true);
+
+
 
 
 
