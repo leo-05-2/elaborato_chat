@@ -10,7 +10,6 @@ protected:
     void SetUp() override {
         sender = User ("sender", "sender");
         receiver = User ("receiver", "receiver");
-
         chat_m= {Message("messaggio 1",sender.get_user_id(),receiver.get_user_id(),1),Message("messaggio 2",
                  receiver.get_user_id(),sender.get_user_id(),2),Message("messaggio 3",sender.get_user_id(),receiver.get_user_id(),3),
         Message("messaggio 4",receiver.get_user_id(),sender.get_user_id(),4)};
@@ -23,10 +22,7 @@ protected:
             ite->set_modified(false);
             chat.set_message(chat_m);
         }
-
-       ;
     }
-
     User sender;
     User receiver;
     std::vector<Message> chat_m;
@@ -41,7 +37,6 @@ TEST_F(Chat_test, send_message) {
     ASSERT_EQ(chat.get_messages().back().get_text(), message.get_text());
     ASSERT_EQ(chat.get_messages().back().is_read(), message.is_read());
     ASSERT_EQ(chat.get_messages().back().is_modified(), message.is_modified());
-
     EXPECT_EQ(chat.get_messages().back().get_text(), message.get_text());
     ASSERT_EQ(chat.get_messages().size(), 5);
     chat.send_message(message.get_text(), sender, sender);
@@ -64,7 +59,6 @@ TEST_F(Chat_test, find_message) {
     ASSERT_EQ(message->get_text(), "messaggio 1");
     ASSERT_EQ(message->get_sender_id(), sender.get_user_id());
     ASSERT_EQ(message->get_receiver_id(), receiver.get_user_id());
-
     ASSERT_EQ(message->is_read(), false);
     ASSERT_EQ(message->is_modified(), false);
     auto message2 = chat.find_message("ciao");

@@ -18,16 +18,11 @@ protected:
         };
         chats= Chat_registry(chat_list);
 
-
-
-
     }
     virtual void TearDown() override {
         chats.get_chats().clear();
         chats.set_chat_list(chat_list);
-
     }
-
     User user1;
     User user2;
     User user3;
@@ -42,7 +37,6 @@ TEST_F(Chat_registry_test,remove_chat) {
     ASSERT_EQ(chat, chats.get_chats()[0]);
     chats.remove_chat(chat,user2);
     ASSERT_NE(chat, chats.get_chats()[0]);
-
 }
 TEST_F(Chat_registry_test,add_chat) {
     ASSERT_EQ(chats.get_chats().size(), 2);
@@ -52,18 +46,15 @@ TEST_F(Chat_registry_test,add_chat) {
     ASSERT_EQ(chats.get_chats().size(), 3);
     ASSERT_EQ(chats.get_chats()[2].get_user1().get_user_id(), user1.get_user_id());
     ASSERT_EQ(chats.get_chats()[2].get_user2().get_user_id(), user4.get_user_id());
-
 }
 
 TEST_F(Chat_registry_test, get_chat) {
     ASSERT_EQ(chats.get_chats().size(), 2);
     chats.add_chat(user2, user1);
     ASSERT_EQ(chats.get_chats().size(), 2);
-
 }
 
 TEST_F(Chat_registry_test, see_chat) {
-
     auto chat = chats.get_chat(user1, user2);
     ASSERT_EQ(chat->get_messages().size(), 0);
     chat->send_message("messaggio 1", user1, user2);
@@ -89,11 +80,6 @@ TEST_F(Chat_registry_test, see_chat) {
     chat->modify_message("messaggio modificato", chat->get_messages()[0], user2);
     ASSERT_EQ(chat->get_messages()[0].is_read(), true);
     ASSERT_EQ(chat->get_messages()[0].is_modified(), true);
-
-
-
-
-
 }
 
 

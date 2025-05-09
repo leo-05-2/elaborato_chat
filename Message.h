@@ -35,9 +35,6 @@ public:
     const  char* get_time()const{
         return ctime(&time);
     };
-    void set_time(){
-        time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    };
 
     bool is_read()const{
         return read;
@@ -52,7 +49,7 @@ public:
     bool operator==(const Message &rs) const {
         return text == rs.text && sender_id == rs.sender_id && receiver_id == rs.receiver_id && time == rs.time;
     }
-    void set_modified( bool set_modified) {
+    void set_modified( bool set_modified) { //per il tear down
         modified = set_modified;
     }
     void set_modified() {
@@ -66,6 +63,9 @@ public:
 
     }
 private:
+void set_time(){
+        time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    };
     std::string text;
     std::string sender_id;
     std::string receiver_id;

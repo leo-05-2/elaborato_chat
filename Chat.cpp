@@ -5,10 +5,6 @@
 #include "Chat.h"
 
 
-Chat::Chat(User & u1, User &u2): user1(u1), user2(u2){
-
-
-}
 
 
 void Chat::modify_message(const std::string &text,Message &message,User & user1) {
@@ -24,7 +20,6 @@ void Chat::get_last_recived_message( const User &sender) const{
             std::cout << it->get_text() << std::endl;
         }
     }
-
 }
 const Message*  Chat::find_message( const std::string &text) const {
     const Message *message = nullptr;
@@ -48,18 +43,13 @@ int Chat::count_unread_messages(const  User &sender) const{ // messaggi ancora d
         if (it->get_sender_id() == sender.get_user_id() && it->is_read()) {
             break;
         }
-
     }
-
     return count;
 }
-
 void Chat::send_message(const std::string &message_text, User &receiver, User &sender) {
     if (sender.get_user_id() != receiver.get_user_id()
         &&((sender.get_user_id() == user1.get_user_id() && receiver.get_user_id()== user2.get_user_id())
             || (sender.get_user_id() == user2.get_user_id() && receiver.get_user_id()== user1.get_user_id()))) {
-
-
         Message message(message_text, sender.get_user_id(), receiver.get_user_id());
         chat_m.push_back(message);
         }
